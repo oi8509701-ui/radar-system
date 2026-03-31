@@ -1,0 +1,31 @@
+# KiCad
+*.kicad_prl
+*.kicad_pro
+*.lck
+fp-info-cache
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Backup
+*.bak
+*.tmp
+*~
+
+# Archives
+arh/
+*.zip
+*.tar.gz
+
+# Test files
+Test_*.kicad_*
