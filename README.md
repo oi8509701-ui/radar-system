@@ -100,5 +100,8 @@ Tile-based architecture is the practical way to scale phased-array radar systems
      - KiCad 9.0
      - Python
      - ADAR1000 (Analog Devices)
+	 
+	 Full Project: https://github.com/NawfalMotii79/PLFM_RADAR
+	 
      - Last updated: 2026-03-31
 
