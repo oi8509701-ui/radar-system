@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AERIS-10N Fractal Antenna 32×16 | 10.5 GHz Phased Array Radar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+        section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #764ba2;
+            margin: 20px 0 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #eee;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        tr:hover {
+            background: #f5f5f5;
+        }
+        .highlight {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .file-tree {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        .file-tree li {
+            list-style: none;
+            padding: 5px 0;
+        }
+        .file-tree li::before {
+            content: "📁 ";
+        }
+        .file-tree li.file::before {
+            content: "📄 ";
+        }
+        .file-tree li.pdf::before {
+            content: "📊 ";
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #667eea;
+        }
+        .card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .container { padding: 10px; }
+            section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📡 AERIS-10N Fractal Antenna</h1>
+            <p class="subtitle">10.5 GHz Phased Array Radar — H-Fractal 32×16 Element Array</p>
+            <div>
+                <span class="badge">10.5 GHz</span>
+                <span class="badge">32×16 Elements</span>
+                <span class="badge">33 dBi Gain</span>
+                <span class="badge">±30° Beam Steering</span>
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="https://github.com/oi8509701-ui/radar-system" class="btn">View on GitHub</a>
+                <a href="https://github.com/oi8509701-ui/radar-system/tree/main/Fractal_32x16" class="btn">Download Files</a>
+            </div>
+        </header>
+
+        <!-- Key Results -->
+        <section>
+            <h2>🎯 Key Performance Results</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Return Loss</h4>
+                    <p style="font-size: 2em; color: #667eea; font-weight: bold;">−18.3 dB</p>
+                    <p>@ 10.5 GHz</p>
+                </div>
+                <div class="card">
+                    <h4>VSWR</h4>
+                    <p style="font-size: 2em; color: #667eea; font-weight: bold;">1.28</p>
+                    <p>Excellent match</p>
+                </div>
+                <div class="card">
+                    <h4>Directivity</h4>
+                    <p style="font-size: 2em; color: #667eea; font-weight: bold;">33.0 dBi</p>
+                    <p>256-element array</p>
+                </div>
+                <div class="card">
+                    <h4>Estimated Gain</h4>
+                    <p style="font-size: 2em; color: #667eea; font-weight: bold;">27.3 dBi</p>
+                    <p>η=65% efficiency</p>
+                </div>
+            </div>
+            
+            <table style="margin-top: 20px;">
+                <tr><th>Parameter</th><th>Value</th></tr>
+                <tr><td>Frequency</td><td>10.5 GHz (λ₀=28.55mm)</td></tr>
+                <tr><td>S₁₁ @ 10.5 GHz</td><td>−18.3 dB</td></tr>
+                <tr><td>VSWR</td><td>1.28</td></tr>
+                <tr><td>Input Impedance</td><td>49.3 + j12.2 Ω</td></tr>
+                <tr><td>Directivity (single)</td><td>12.0 dBi</td></tr>
+                <tr><td>Directivity (256 array)</td><td>33.0 dBi</td></tr>
+                <tr><td>Beam Steering</td><td>±30° (E-plane)</td></tr>
+                <tr><td>Beam Width (HPBW)</td><td>~5.3° (pencil beam)</td></tr>
+            </table>
+        </section>
+
+        <!-- Fractal Architecture -->
+        <section>
+            <h2>📐 Fractal H-Resonator Architecture</h2>
+            <p>The antenna uses a self-similar H-fractal geometry that provides multi-band operation through recursive scaling.</p>
+            
+            <table>
+                <tr><th>Level</th><th>Frequency</th><th>Bar Length</th><th>Application</th></tr>
+                <tr><td><strong>L0</strong></td><td>10.5 GHz</td><td>9.16 mm</td><td><span style="color: green;">✓ Main operating frequency</span></td></tr>
+                <tr><td><strong>L1</strong></td><td>21.0 GHz</td><td>4.58 mm</td><td>2nd harmonic</td></tr>
+                <tr><td><strong>L2</strong></td><td>42.0 GHz</td><td>2.29 mm</td><td>3rd harmonic</td></tr>
+                <tr><td><strong>L3</strong></td><td>84.0 GHz</td><td>1.15 mm</td><td>4th harmonic</td></tr>
+            </table>
+
+            <div class="highlight" style="margin-top: 20px;">
+                <strong>Scaling Factor:</strong> Each level is scaled by 1/√2 (≈0.707) from the previous level, creating a self-similar fractal structure.
+            </div>
+        </section>
+
+        <!-- 16-Channel Array -->
+        <section>
+            <h2>🔧 16-Channel Phased Array Specifications</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Grid Configuration</h4>
+                    <p>4×4 = 16 H-fractal subarrays</p>
+                </div>
+                <div class="card">
+                    <h4>Substrate</h4>
+                    <p>Rogers RO4350B<br>εr=3.48, h=0.762mm</p>
+                </div>
+                <div class="card">
+                    <h4>Element Spacing</h4>
+                    <p>18.32 mm (0.64λ)</p>
+                </div>
+                <div class="card">
+                    <h4>Board Size</h4>
+                    <p>90 × 120 mm</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px;">Beamforming System</h3>
+            <table>
+                <tr><th>Component</th><th>Quantity</th><th>Function</th></tr>
+                <tr><td>ADAR1000</td><td>4× ICs</td><td>4-channel phase shifters (16 total channels)</td></tr>
+                <tr><td>Power Divider</td><td>Corporate 1→4</td><td>Equal path lengths to all elements</td></tr>
+                <tr><td>RF Connectors</td><td>16× MMCX</td><td>Tile-to-backplane interface</td></tr>
+            </table>
+        </section>
+
+        <!-- Simulation Reports -->
+        <section>
+            <h2>📊 Simulation Reports</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>Fractal_32x16_SimReport.pdf</h4>
+                    <p><strong>9 pages</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Cover with geometry</li>
+                        <li>S₁₁ / Return Loss spectrum (1-25 GHz)</li>
+                        <li>Impedance + Smith Chart</li>
+                        <li>2D radiation patterns (E/H-plane)</li>
+                        <li>3D radiation pattern</li>
+                        <li>Beam steering (0°, 15°, 30°)</li>
+                        <li>Current distribution</li>
+                        <li>Multi-band resonances (L0-L3)</li>
+                        <li>Summary table</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Array_256elem_SimReport.pdf</h4>
+                    <p><strong>10 pages</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>256-element tiled array architecture</li>
+                        <li>33 dBi directivity analysis</li>
+                        <li>5.3° HPBW pencil beam</li>
+                        <li>6 scan modes (±30°)</li>
+                        <li>4/16/256 element comparison</li>
+                        <li>Feed network loss analysis</li>
+                        <li>Current distribution</li>
+                        <li>Budget analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Scaling -->
+        <section>
+            <h2>📈 System Scaling Comparison</h2>
+            <table>
+                <tr><th>Array</th><th>Elements</th><th>Directivity</th><th>Beam Width</th><th>Est. Cost</th></tr>
+                <tr><td>2×2 (v37)</td><td>4</td><td>12.0 dBi</td><td>~50°</td><td>~$100</td></tr>
+                <tr><td>4×4</td><td>16</td><td>18.6 dBi</td><td>~25°</td><td>~$400</td></tr>
+                <tr><td><strong>16×16 (tile)</strong></td><td><strong>256</strong></td><td><strong>33.0 dBi</strong></td><td><strong>~5.3°</strong></td><td><strong>~$2,500</strong></td></tr>
+            </table>
+            <div class="highlight" style="margin-top: 15px;">
+                <strong>Physics Note:</strong> Increasing aperture by 4× (from 4 to 16 elements) provides +6 dB directivity gain — physically correct result.
+            </div>
+        </section>
+
+        <!-- Budget -->
+        <section>
+            <h2>💰 Prototype Budget (256 Elements)</h2>
+            <table>
+                <tr><th>Component</th><th>Quantity</th><th>Unit Cost</th><th>Total</th></tr>
+                <tr><td>ADAR1000 beamformers</td><td>64×</td><td>$20</td><td>$1,280</td></tr>
+                <tr><td>Rogers RO4350B tiles</td><td>16×</td><td>$30</td><td>$480</td></tr>
+                <tr><td>Backplane PCB</td><td>1×</td><td>$250</td><td>$250</td></tr>
+                <tr><td>Assembly</td><td>—</td><td>—</td><td>$300</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong style="color: #667eea; font-size: 1.3em;">~$2,500</strong></td></tr>
+            </table>
+        </section>
+
+        <!-- Files -->
+        <section>
+            <h2>📁 Repository Files</h2>
+            <ul class="file-tree">
+                <li class="file">AERIS_10N_Fractal_32x16.kicad_pcb — Main antenna PCB (KiCad)</li>
+                <li class="file">BACKPLANE_16T_v1.kicad_pcb — 16-tile backplane controller</li>
+                <li class="file">32х16.png — Antenna geometry visualization</li>
+                <li class="file">split_32х16.png — Split view diagram</li>
+                <li class="pdf">Fractal_32x16_SimReport.pdf — 9-page simulation report</li>
+                <li class="pdf">Array_256elem_SimReport.pdf — 10-page 256-element report</li>
+                <li class="file">README.md — This documentation</li>
+            </ul>
+        </section>
+
+        <!-- Important Note -->
+        <section>
+            <h2>⚠️ Important Note</h2>
+            <div class="warning">
+                <strong>Model Limitation:</strong> This is a <strong>semi-analytical model</strong> (Lorentzian impedance + array factor), <strong>not full-wave EM</strong> (HFSS/CST). For production validation, VNA measurement or full-wave solver is required.
+            </div>
+            <p style="margin-top: 15px;">However, the model is <strong>adequate for:</strong></p>
+            <ul style="margin-top: 10px; padding-left: 20px;">
+                <li>✓ Antenna behavior estimation</li>
+                <li>✓ Resonance analysis</li>
+                <li>✓ Radiation pattern prediction</li>
+                <li>✓ Gain estimation</li>
+            </ul>
+        </section>
+
+        <!-- Tools -->
+        <section>
+            <h2>🛠️ Tools Used</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>KiCad 9.0</h4>
+                    <p>PCB design and layout</p>
+                </div>
+                <div class="card">
+                    <h4>Python</h4>
+                    <p>Fractal generation, simulation automation</p>
+                </div>
+                <div class="card">
+                    <h4>ADAR1000</h4>
+                    <p>Beamforming IC (Analog Devices)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>AERIS-10N Phased Array Radar Project</strong></p>
+            <p>Frequency: 10.5 GHz | Status: Alpha (simulation validated)</p>
+            <p style="margin-top: 15px;">
+                <a href="https://github.com/oi8509701-ui/radar-system" target="_blank">GitHub Repository</a> |
+                <a href="https://github.com/NawfalMotii79/PLFM_RADAR" target="_blank">Full Project</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.8em;">Last updated: 2026-03-31</p>
+        </footer>
+    </div>
+</body>
+</html>
