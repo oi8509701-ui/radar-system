@@ -1,3 +1,21 @@
+  About
+  •	website:
+	•	topics: radar, phased-array, rf, kicad, antenna, hardware
+  -----------------------------------------------------------
+  •	Overview
+	•	Repository structure
+	•	How to open in KiCad
+	•	What is simulated vs what is measured
+	•	Roadmap
+  -------------------------------------------------------------
+  Simulation status
+  •	single element
+	•	4×4 tile
+	•	256 array
+	•	method used
+	•	validated / not validated
+  --------------------------------------------------------------
+  
 <img width="477" height="695" alt="FAR" src="https://github.com/user-attachments/assets/8e632f1f-8ae0-4d82-8858-048c7216fd88" />
 
   --------------------------------------------------------------
