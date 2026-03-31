@@ -1,4 +1,4 @@
- ✦ AERIS-10N Fractal Antenna 32x16  Releases v0.1
+ ✦ AERIS-10 Fractal Antenna 32x16  Releases v0.1
   -----------------------------------------------------------
   •	Overview
 	•	Repository structure
