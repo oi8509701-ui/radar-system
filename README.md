@@ -21,19 +21,8 @@
 
 ## Industry approach
 
-  Large phased-array systems are not built as a single PCB.  
-  Instead, a **tile-based architecture** is used.
-
-  ┌─────┬─────┬─────┬─────┐
-  │ 4×4 │ 4×4 │ 4×4 │ 4×4 │   
-  │tile1│tile2│tile3│tile4│      
-  ├─────┼─────┼─────┼─────┤
-  │ 4×4 │ 4×4 │ 4×4 │ 4×4 │
-  │tile5│tile6│tile7│tile8│
-  ├─────┼─────┼─────┼─────┤
-  │     │     │     │     │
-  ...   16 tiles total
-
+Large phased-array systems are not built as a single PCB.  
+Instead, a **tile-based architecture** is used.
 
 Each tile = a 4×4 module (~90×120 mm).  
 Tiles are mechanically assembled into a single aperture and synchronized by a central controller.
