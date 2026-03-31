@@ -1,4 +1,4 @@
-AERIS-10N Fractal Antenna 32x16
+AERIS-10 Fractal Antenna 32x16
 
 10.5 GHz Phased Array Radar Antenna
 
