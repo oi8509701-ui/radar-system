@@ -1,3 +1,6 @@
+<img width="477" height="695" alt="FAR" src="https://github.com/user-attachments/assets/8e632f1f-8ae0-4d82-8858-048c7216fd88" />
+
+  --------------------------------------------------------------
   ✦ AERIS-10N Fractal Antenna 32x16
 
     10.5 GHz Phased Array Radar Antenna
@@ -51,7 +54,7 @@
      - Python
      - ADAR1000 (Analog Devices)
 
-    GitHub: https://github.com/oi8509701-ui/radar-system
+  
     Full Project: https://github.com/NawfalMotii79/PLFM_RADAR
 
     Last updated: 2026-03-31
