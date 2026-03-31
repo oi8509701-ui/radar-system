@@ -16,10 +16,50 @@
   
 <img width="477" height="695" alt="FAR" src="https://github.com/user-attachments/assets/8e632f1f-8ae0-4d82-8858-048c7216fd88" />
 
-  --------------------------------------------------------------
+--------------------------------------------------------------
+# Architecture
+
+## Industry approach
+
+  Large phased-array systems are not built as a single PCB.  
+  Instead, a **tile-based architecture** is used.
+
+  ┌─────┬─────┬─────┬─────┐
+  │ 4×4 │ 4×4 │ 4×4 │ 4×4 │   
+  │tile1│tile2│tile3│tile4│      
+  ├─────┼─────┼─────┼─────┤
+  │ 4×4 │ 4×4 │ 4×4 │ 4×4 │
+  │tile5│tile6│tile7│tile8│
+  ├─────┼─────┼─────┼─────┤
+  │     │     │     │     │
+  ...   16 tiles total
+
+
+Each tile = a 4×4 module (~90×120 mm).  
+Tiles are mechanically assembled into a single aperture and synchronized by a central controller.
+
+### Advantages
+
+- Single reusable PCB  
+- Fault tolerance (replace one tile instead of the whole array)  
+- Lower cost (2-layer PCB possible)  
+- Per-tile testing  
+- Scalable: 4 → 16 → 64 tiles  
+
+### Conclusion
+
+| Question | Answer |
+|--------|------|
+| 4×4 (16 channels) feasible? | Yes |
+| 256 elements on one PCB? | Possible, but not practical |
+| Recommended approach | 16 tiles (4×4 each) |
+| Cost (tile-based) | ~$3k–5k (prototype, estimate) |
+| Cost (monolithic) | ~$10k–15k |
+
+Tile-based architecture is the practical way to scale phased-array radar systems.
+--------------------------------------------------------------
   
     10.5 GHz Phased Array Radar Antenna
-
     Key Results:
      - Frequency: 10.5 GHz
      - S11 @ 10.5 GHz: -18.3 dB
