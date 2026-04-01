@@ -47,6 +47,21 @@ Tiles are mechanically assembled into a single aperture and synchronized by a ce
 
 Tile-based architecture is the practical way to scale phased-array radar systems.
 --------------------------------------------------------------
+
+<img width="732" height="422" alt="099" src="https://github.com/user-attachments/assets/6e48a4cf-4d29-4e43-b7c7-5b403c72d409" />
+
+--------------------------------------------------------------
+
+This is an ideal model. In reality, the actual range will be lower due to:
+
+losses
+calibration
+phase errors
+clutter
+mechanical factors
+But the pure scaling based on the table is exactly as shown above.
+
+---------------------------------------------------------------
   
     10.5 GHz Phased Array Radar Antenna
     Key Results:
