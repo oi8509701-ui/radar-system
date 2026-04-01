@@ -1,4 +1,7 @@
- ✦ AERIS-10 Fractal Antenna 32x16  Releases v0.1
+  # AERIS-10N Phased Array Radar Releases v0.1
+
+  256-element modular X-band phased array radar (10.5 GHz)
+  Designed for detection of small aerial targets (birds, drones)
   -----------------------------------------------------------
   •	Overview
 	•	Repository structure
