@@ -95,7 +95,7 @@ But the pure scaling based on the table is exactly as shown above.
      - Array_256elem_SimReport.pdf (10 pages)
 	 ------------------------------------------------------
 
-	 <img width="1440" height="900" alt="AERIS_10N_Complete_System" src="https://github.com/user-attachments/assets/41a7a62b-2e04-4728-a696-6d5bd06ef65f" />
+<img width="1440" height="900" alt="AERIS_10N_Complete_System" src="https://github.com/user-attachments/assets/41a7a62b-2e04-4728-a696-6d5bd06ef65f" />
 
 	 ------------------------------------------------------
   
