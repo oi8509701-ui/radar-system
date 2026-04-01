@@ -139,6 +139,151 @@ python generate_aeris10n_patch_array_v5.py
 
 ---
 
+## 🖥️ MCP Server (KiCad Integration)
+
+### Главный MCP сервер для работы с KiCad проектами
+
+**Файл:** [`kicad-mcp-server/server.py`](kicad-mcp-server/server.py)
+
+### Назначение
+
+MCP (Model Context Protocol) сервер для интеграции AI ассистентов с KiCad проектами AERIS-10N. Позволяет:
+- Парсить KiCad PCB и schematic файлы
+- Получать информацию о слоях, компонентах, треках
+- Анализировать Gerber файлы
+- Получать структуру проекта
+
+### Установка
+
+```bash
+cd /Users/mac/PLFM_RADAR_NEWS/kicad-mcp-server
+
+# Активировать виртуальное окружение
+source venv/bin/activate
+
+# Установить зависимости (если нужно)
+pip install mcp>=0.9.0 sexpdata>=0.0.3
+```
+
+### Запуск сервера
+
+```bash
+# Запуск MCP сервера
+python server.py
+```
+
+### Доступные инструменты
+
+| Инструмент | Описание | Параметры |
+|------------|----------|-----------|
+| **list_project_boards** | Список всех PCB плат в проекте | — |
+| **parse_pcb** | Парсинг KiCad PCB файла | `pcb_path`: путь к `.kicad_pcb` |
+| **parse_schematic** | Парсинг KiCad схемы | `sch_path`: путь к `.kicad_sch` |
+| **list_gerber** | Список Gerber файлов | `project_dir`: путь к директории платы |
+| **get_board_info** | Информация о плате | `board_name`: MainBoard, PowerBoard, etc. |
+
+### Примеры использования
+
+#### 1. Получить структуру проекта:
+
+```json
+{
+  "name": "list_project_boards",
+  "arguments": {}
+}
+```
+
+**Ответ:**
+```json
+{
+  "root": "/Users/mac/PLFM_RADAR_NEWS",
+  "boards": [
+    {
+      "name": "MainBoard",
+      "path": "/Users/mac/PLFM_RADAR_NEWS/MainBoard",
+      "schematic": "...",
+      "pcb": "...",
+      "gerber_count": 12
+    },
+    ...
+  ]
+}
+```
+
+#### 2. Распарсить PCB файл:
+
+```json
+{
+  "name": "parse_pcb",
+  "arguments": {
+    "pcb_path": "/Users/mac/PLFM_RADAR_NEWS/MainBoard/RADAR_Main_Board.kicad_pcb"
+  }
+}
+```
+
+**Ответ:**
+```json
+{
+  "success": true,
+  "layers": [...],
+  "footprints": [...],
+  "tracks": 1234,
+  "vias": 567,
+  "dimensions": {...}
+}
+```
+
+#### 3. Получить информацию о плате:
+
+```json
+{
+  "name": "get_board_info",
+  "arguments": {
+    "board_name": "MainBoard"
+  }
+}
+```
+
+### Интеграция с AI ассистентами
+
+MCP сервер может быть подключён к AI ассистентам через стандартный протокол:
+
+```python
+# Пример подключения через MCP SDK
+from mcp import Client
+
+async with Client() as client:
+    # Получить список инструментов
+    tools = await client.list_tools()
+    
+    # Вызвать инструмент
+    result = await client.call_tool(
+        name="parse_pcb",
+        arguments={"pcb_path": "..."}
+    )
+```
+
+### Структура kicad-mcp-server/
+
+```
+kicad-mcp-server/
+├── server.py                    # Главный MCP сервер
+├── kicad_antenna_server.py      # MCP сервер для антенн
+├── requirements.txt             # Python зависимости
+├── venv/                        # Виртуальное окружение
+├── generate_*.py                # Генераторы PCB
+└── README_antenna.md            # Документация антенного сервера
+```
+
+### Зависимости
+
+| Пакет | Версия | Назначение |
+|-------|--------|------------|
+| **mcp** | ≥0.9.0 | MCP protocol implementation |
+| **sexpdata** | ≥0.0.3 | S-expression parser (KiCad format) |
+
+---
+
 ## 📡 Антенные подсистемы
 
 ### Patch 4×4 (Тестовая)
