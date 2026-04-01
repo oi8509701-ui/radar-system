@@ -1,0 +1,182 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "1b55ce42-1f67-431c-a9ab-3dec2cf48068")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 127 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "129252df-a354-41ad-a50c-269a0e20abc9")
+		(property "Sheetname" "RF"
+			(at 127 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RADAR_Main_Board_3.kicad_sch"
+			(at 127 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "RADAR_Main_Board"
+				(path "/1b55ce42-1f67-431c-a9ab-3dec2cf48068"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 25.4 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "1ea92658-9269-4a50-bd80-ffb54bfdf3b1")
+		(property "Sheetname" "POWER SUPPLIES"
+			(at 25.4 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RADAR_Main_Board_1.kicad_sch"
+			(at 25.4 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "RADAR_Main_Board"
+				(path "/1b55ce42-1f67-431c-a9ab-3dec2cf48068"
+					(page "1")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 76.2 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "2573520a-5a97-4b3e-8f0c-21701c7b614f")
+		(property "Sheetname" "Digital (FPGA+microcontroller)"
+			(at 76.2 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RADAR_Main_Board_2.kicad_sch"
+			(at 76.2 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "RADAR_Main_Board"
+				(path "/1b55ce42-1f67-431c-a9ab-3dec2cf48068"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 177.8 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e423e7e4-f5e1-4902-a362-47531d3e58dd")
+		(property "Sheetname" "RF POWER AMPLIFIER BIAS"
+			(at 177.8 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "RADAR_Main_Board_4.kicad_sch"
+			(at 177.8 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "RADAR_Main_Board"
+				(path "/1b55ce42-1f67-431c-a9ab-3dec2cf48068"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
