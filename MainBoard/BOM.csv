@@ -1,0 +1,25 @@
+# BOM - Main Board (AERIS-10)
+# Основная плата обработки сигналов
+# Версия: 1.0 | Дата: 29.03.2026
+
+RefDes,Qty,MPN,Manufacturer,Description,Package
+U1,1,XC7A50T-2FTG256I,Xilinx,FPGA Artix-7 (мин.),FTG256
+U1,1,XC7A100T-2FTG256I,Xilinx,FPGA Artix-7 (рек.),FTG256
+U2,1,STM32F746ZGT7,STMicroelectronics,MCU ARM Cortex-M7,LQFP144
+U3,1,AD9708,Analog Devices,DAC 8-bit 125 MSPS,LQFP48
+U4,1,AD9484,Analog Devices,ADC 8-bit 500 MSPS,TQFP128
+U5,1,AD9523-1,Analog Devices,Clock Generator,64-LFCSP
+U6,1,ADF4382ABCCZ,Analog Devices,PLL Synthesizer TX,32-LFCSP
+U7,1,ADF4382ABCCZ,Analog Devices,PLL Synthesizer RX,32-LFCSP
+U8-U11,4,ADAR1000,Analog Devices,Beamformer 4-ch,LGA40
+U12-U27,16,ADTR1107,Analog Devices,Front-end RX/TX,LGA24
+U28-U29,2,LTC5552IUDB#TRMPBF,Linear Technology,Mixer Dual 10GHz,20-DFN
+U30,1,DAC5578,Texas Instruments,DAC 12-bit I2C,TSSOP16
+U31-U32,2,ADS7830,Texas Instruments,ADC 8-bit I2C,TSSOP16
+J1,1,FT601Q,FTDI,USB 3.0 Interface,QFP48
+Y1,1,OCXO-100MHz,Various,Master Reference,Various
+C1-C50,50,Various,Capacitors 0402/0603,Various
+R1-R100,100,Various,Resistors 0402/0603,Various
+L1-L20,20,Various,Inductors,Various
+D1-D10,10,Various,Diodes,Various
+Q1-Q10,10,Various,Transistors,Various

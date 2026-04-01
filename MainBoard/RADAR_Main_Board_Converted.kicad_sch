@@ -1,0 +1,27 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eagle2kicad_converter")
+	(generator_version "2.0")
+	(uuid "b61d0cfd-2566-4495-be51-d24b428cbe89")
+	(paper "A4")
+	(lib_symbols
+)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+
+	(sheet "None"
+	)
+
+	(sheet "None"
+	)
+
+	(sheet "None"
+	)
+
+	(sheet "None"
+	)
+)
