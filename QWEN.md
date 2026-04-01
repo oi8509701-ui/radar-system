@@ -1723,3 +1723,402 @@ board.Save()
 ---
 
 *Последнее обновление: 2026-04-01*
+
+---
+
+## 🚀 KiCAD-MCP-Server (mixelpixx) - Полное Управление KiCad
+
+### 📋 Обзор
+
+**KiCAD-MCP-Server** от [mixelpixx](https://github.com/mixelpixx/KiCAD-MCP-Server) — это мощный сервер для **полного управления KiCad через MCP протокол**.
+
+**Возможности:**
+- ✅ **Трассировка PCB** — `route_trace`, `route_pad_to_pad`, `diff_pair_route`
+- ✅ **Заливка зон** — `add_zone`, `refill_zones`, `fill_zone`
+- ✅ **DRC проверка** — `run_drc`, `get_drc_violations`
+- ✅ **Автотрассировка** — Freerouting интеграция
+- ✅ **Схемотехника** — 27 инструментов для схем
+- ✅ **JLCPCB интеграция** — 2.5M+ компонентов, цены, альтернативы
+- ✅ **IPC режим** — изменения в реальном времени
+- ✅ **122 инструмента** в 16 категориях
+
+---
+
+### 🔧 Установка
+
+#### 1. Требования
+
+- **KiCad 9.0+** (скачать с https://www.kicad.org/)
+- **Node.js 20+** (`brew install node@20`)
+- **Python 3.9+** (входит в KiCad)
+- **Java 8+** (для Freerouting: `brew install java`)
+
+#### 2. Установка на macOS
+
+```bash
+# Клонировать репозиторий
+cd /Users/mac/PLFM_RADAR_NEWS
+git clone https://github.com/mixelpixx/KiCAD-MCP-Server.git
+cd KiCAD-MCP-Server
+
+# Установить Node.js зависимости
+npm install
+
+# Создать Python venv с системными пакетами KiCad
+/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3 -m venv venv --system-site-packages
+
+# Активировать venv
+source venv/bin/activate
+
+# Установить Python зависимости
+pip install -r requirements.txt
+
+# Скомпилировать TypeScript
+npm run build
+```
+
+#### 3. Проверка установки
+
+```bash
+# Проверить версию
+npm run version
+
+# Проверить сервер
+npm run start -- --help
+```
+
+---
+
+### 🚀 Запуск Сервера
+
+#### 1. Базовый запуск
+
+```bash
+cd /Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server
+source venv/bin/activate
+npm run start
+```
+
+#### 2. Запуск с конфигом
+
+```bash
+npm run start -- --config config/config.json
+```
+
+#### 3. Запуск для конкретного проекта
+
+```bash
+npm run start -- --project /Users/mac/PLFM_RADAR_NEWS/MainBoard/RADAR_Main_Board.kicad_pcb
+```
+
+---
+
+### 🛠️ 122 Инструмента — Категории
+
+#### 1. Schematic (27 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `add_component` | Добавить компонент | `{"ref": "R1", "value": "10k", "footprint": "0402"}` |
+| `add_wire` | Соединить проводами | `{"from": "R1:1", "to": "U1:2"}` |
+| `add_net` | Создать net | `{"name": "GND"}` |
+| `create_netlist` | Экспорт netlist | `{"format": "kicad"}` |
+
+#### 2. PCB Routing (15 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `route_trace` | Развести дорожку | `{"from": [10,10], "to": [20,20], "width": 0.25}` |
+| `route_pad_to_pad` | Между падами | `{"ref1": "R1", "pad1": "1", "ref2": "U1", "pad2": "2"}` |
+| `diff_pair_route` | Диф. пара | `{"p_net": "TX_P", "n_net": "TX_N", "impedance": 100}` |
+| `length_match` | Длина пар | `{"target": 50.0, "tolerance": 0.1}` |
+
+#### 3. Zones (8 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `add_zone` | Добавить зону | `{"net": "GND", "layer": "F.Cu"}` |
+| `refill_zones` | Перезалить зоны | `{}` |
+| `fill_zone` | Залить зону | `{"zone_id": 1}` |
+| `clear_zone` | Очистить зону | `{"zone_id": 1}` |
+
+#### 4. DRC (5 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `run_drc` | Запустить DRC | `{}` |
+| `get_drc_violations` | Получить нарушения | `{"limit": 100}` |
+| `fix_clearance` | Исправить clearance | `{"violation_id": 1}` |
+
+#### 5. Freerouting (10 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `auto_route` | Автотрассировка | `{}` |
+| `export_dsn` | Экспорт в DSN | `{"output": "design.dsn"}` |
+| `import_ses` | Импорт SES | `{"input": "design.ses"}` |
+
+#### 6. JLCPCB (12 инструментов)
+
+| Инструмент | Описание | Пример |
+|------------|----------|--------|
+| `search_component` | Поиск компонента | `{"query": "STM32F746"}` |
+| `get_prices` | Цены | `{"lcsc_id": "C12345"}` |
+| `get_alternatives` | Альтернативы | `{"lcsc_id": "C12345"}` |
+
+---
+
+### 💡 Примеры Использования
+
+#### Пример 1: Автоматическая трассировка
+
+```python
+import requests
+
+MCP_SERVER = "http://localhost:3000"
+
+# Конфиг трассировки
+config = {
+    "board": "/Users/mac/PLFM_RADAR_NEWS/MainBoard/RADAR_Main_Board.kicad_pcb",
+    "track_width": 0.25,
+    "diff_pair_width": 0.25,
+    "diff_pair_gap": 0.25,
+    "via_diameter": 0.6,
+    "via_drill": 0.3,
+    "clearance": 0.2,
+    "layers": ["F.Cu", "In1.Cu", "B.Cu"],
+    "critical_nets": {
+        "differential_pairs": [
+            {"p": "TX_P", "n": "TX_N", "impedance": 100}
+        ]
+    }
+}
+
+# Отправить запрос
+response = requests.post(f"{MCP_SERVER}/api/route", json=config)
+result = response.json()
+
+print(f"Tracks routed: {result['tracks_routed']}")
+print(f"Vias placed: {result['vias_placed']}")
+print(f"DRC violations: {result['drc_violations']}")
+```
+
+#### Пример 2: Добавление зоны GND
+
+```python
+import requests
+
+MCP_SERVER = "http://localhost:3000"
+
+config = {
+    "board": "/Users/mac/PLFM_RADAR_NEWS/MainBoard/RADAR_Main_Board.kicad_pcb",
+    "zone": {
+        "net": "GND",
+        "layer": "F.Cu",
+        "clearance": 0.2,
+        "thermal_gap": 0.5,
+        "thermal_bridge_width": 0.5
+    }
+}
+
+response = requests.post(f"{MCP_SERVER}/api/zone/add", json=config)
+print(response.json())
+```
+
+#### Пример 3: Запуск DRC
+
+```python
+import requests
+
+MCP_SERVER = "http://localhost:3000"
+
+response = requests.post(f"{MCP_SERVER}/api/drc/run")
+result = response.json()
+
+print(f"DRC violations: {result['violations']}")
+print(f"Errors: {result['errors']}")
+print(f"Warnings: {result['warnings']}")
+```
+
+#### Пример 4: Трассировка диф. пары
+
+```python
+import requests
+
+MCP_SERVER = "http://localhost:3000"
+
+config = {
+    "board": "/Users/mac/PLFM_RADAR_NEWS/MainBoard/RADAR_Main_Board.kicad_pcb",
+    "diff_pair": {
+        "p_net": "SFP_TX0_P",
+        "n_net": "SFP_TX0_N",
+        "impedance": 100,
+        "width": 0.25,
+        "gap": 0.25,
+        "length_match": True,
+        "target_length": 50.0,
+        "tolerance": 0.1
+    }
+}
+
+response = requests.post(f"{MCP_SERVER}/api/route/diff_pair", json=config)
+print(response.json())
+```
+
+---
+
+### 📁 Скрипты для AERIS-10N
+
+#### 1. KICAD_MCP_ROUTING.py
+
+**Расположение:** `/Users/mac/PLFM_RADAR_NEWS/MainBoard/KICAD_MCP_ROUTING.py`
+
+**Назначение:** Автоматическая трассировка MainBoard
+
+**Запуск:**
+```bash
+cd /Users/mac/PLFM_RADAR_NEWS/MainBoard
+python3 KICAD_MCP_ROUTING.py
+```
+
+**Что делает:**
+- Проверяет сервер
+- Создаёт конфиг с критическими nets
+- Отправляет запрос на трассировку
+- Проверяет результат
+- Генерирует отчёт
+
+#### 2. AUTOMATED_ROUTING.py
+
+**Расположение:** `/Users/mac/PLFM_RADAR_NEWS/MainBoard/AUTOMATED_ROUTING.py`
+
+**Назначение:** Альтернативная трассировка через FreeRouting
+
+**Запуск:**
+```bash
+cd /Users/mac/PLFM_RADAR_NEWS/MainBoard
+python3 AUTOMATED_ROUTING.py
+```
+
+---
+
+### 🔍 Мониторинг и Отладка
+
+#### Проверка статуса сервера
+
+```bash
+# Проверить процесс
+ps aux | grep kicad-mcp
+
+# Проверить лог
+tail -f /Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server/logs/mcp.log
+
+# Проверить порт
+lsof -i :3000
+```
+
+#### Health check
+
+```bash
+curl http://localhost:3000/health
+```
+
+#### Перезапуск сервера
+
+```bash
+# Остановить
+pkill -f kicad-mcp
+
+# Запустить
+cd /Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server
+source venv/bin/activate
+npm run start
+```
+
+---
+
+### ⚠️ Решение Проблем
+
+#### 1. Сервер не запускается
+
+**Ошибка:** `Error: Cannot find module 'kicad-mcp'`
+
+**Решение:**
+```bash
+cd /Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server
+npm install
+npm run build
+```
+
+#### 2. Python не находит pcbnew
+
+**Ошибка:** `ModuleNotFoundError: No module named 'pcbnew'`
+
+**Решение:**
+```bash
+# Пересоздать venv с системными пакетами
+rm -rf venv
+/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3 -m venv venv --system-site-packages
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+#### 3. Freerouting не работает
+
+**Ошибка:** `Java not found`
+
+**Решение:**
+```bash
+brew install java
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+```
+
+#### 4. Трассировка зависает
+
+**Решение:**
+```bash
+# Остановить процесс
+pkill -f freerouting
+
+# Запустить с меньшим RAM
+java -Xmx2G -jar /Applications/FreeRouting/freerouting.jar
+```
+
+---
+
+### 📚 Документация
+
+| Ресурс | Ссылка |
+|--------|--------|
+| **GitHub** | https://github.com/mixelpixx/KiCAD-MCP-Server |
+| **README** | `/Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server/README.md` |
+| **Docs** | `/Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server/docs/` |
+| **Tools** | `/Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server/docs/tools/` |
+| **Config** | `/Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server/config/` |
+
+---
+
+### ✅ Quick Start для AERIS-10N
+
+```bash
+# 1. Запустить сервер
+cd /Users/mac/PLFM_RADAR_NEWS/KiCAD-MCP-Server
+source venv/bin/activate
+npm run start &
+
+# 2. Запустить трассировку
+cd /Users/mac/PLFM_RADAR_NEWS/MainBoard
+python3 KICAD_MCP_ROUTING.py
+
+# 3. Открыть результат
+open -a KiCad RADAR_Main_Board_MCP_ROUTED.kicad_pcb
+
+# 4. Проверить DRC
+# В KiCad: Tools → Design Rule Checker → Run DRC
+```
+
+---
+
+**KiCAD-MCP-Server готов к использованию!** 🚀
+
+*Инструкция добавлена: 2026-04-01*
