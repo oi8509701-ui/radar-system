@@ -1529,4 +1529,197 @@ open /Users/mac/PLFM_RADAR_NEWS/Antennas/Patch_4x4/AERIS_10N_Patch_4x4_v21.kicad
 
 ---
 
+## 🔧 KiCad - Правила Использования
+
+### ⚠️ ВАЖНО: Как правильно работать с файлами KiCad
+
+**НЕЛЬЗЯ:**
+- ❌ Редактировать `.kicad_pcb` и `.kicad_sch` файлы через текстовый редактор
+- ❌ Использовать regex для замены координат компонентов
+- ❌ Изменять файлы вручную без KiCad
+
+**МОЖНО И НУЖНО:**
+- ✅ Использовать KiCad PCB Editor для редактирования плат
+- ✅ Использовать KiCad Schematic Editor для схем
+- ✅ Запускать Python скрипты ЧЕРЕЗ KiCad (Tools → Scripting → Run Script)
+- ✅ Использовать KiCad Python API (`pcbnew`, `schnew`)
+
+---
+
+### 📋 Правильный Workflow
+
+#### 1. Открытие файла
+
+```
+1. Открой KiCad
+2. PCB Editor (или Schematic Editor)
+3. File → Open → Выбери файл (.kicad_pcb или .kicad_sch)
+```
+
+#### 2. Редактирование платы
+
+```
+1. Выбери компонент (клик мышкой)
+2. Перемести (клавиша "M")
+3. Поверни (клавиша "R")
+4. Размести внутри границ платы (Edge.Cuts)
+```
+
+#### 3. Исправление компонентов за границами
+
+```
+1. Tools → Scripting → Run Script
+2. Выбери: fix_components_kicad_api.py
+3. Click "Run"
+4. Проверь результат
+```
+
+#### 4. Проверка (DRC)
+
+```
+1. Tools → Design Rule Checker
+2. Click "Run DRC"
+3. Исправь все ошибки (должно быть 0 errors)
+4. Закрой DRC
+```
+
+#### 5. Заполнение зон (если есть)
+
+```
+1. Нажми "B" (Fill Zones)
+2. Проверь что зоны заполнены
+```
+
+#### 6. 3D просмотр
+
+```
+1. Нажми "3" (3D Viewer)
+2. Проверь расположение компонентов
+3. Закрой 3D Viewer (Esc)
+```
+
+#### 7. Сохранение
+
+```
+1. File → Save (или Ctrl+S)
+2. Или File → Save As для новой версии
+```
+
+#### 8. Экспорт Gerber
+
+```
+1. File → Fabrication Outputs → Gerbers (.gbr)
+2. Выбери слои (F.Cu, B.Cu, F.SilkS, B.SilkS, F.Mask, B.Mask, Edge.Cuts)
+3. Click "Plot"
+4. File → Fabrication Outputs → Drill Files (.drl)
+5. Click "Generate"
+```
+
+---
+
+### 🔑 Горячие Клавиши
+
+| Клавиша | Действие |
+|---------|----------|
+| **M** | Move (переместить компонент) |
+| **R** | Rotate (повернуть компонент) |
+| **B** | Fill Zones (заполнить зоны) |
+| **3** | 3D Viewer (3D просмотр) |
+| **D** | Route Tracks (трассировка) |
+| **V** | Visual Constraints (настройки видимости) |
+| **Ctrl+S** | Save (сохранить) |
+| **Ctrl+Z** | Undo (отменить) |
+| **Ctrl+Y** | Redo (повторить) |
+| **Delete** | Delete (удалить) |
+| **F7** | Zoom to Fit (масштаб по размеру) |
+| **F8** | Zoom to Selection (масштаб по выделенному) |
+
+---
+
+### 📁 Файлы KiCad
+
+| Расширение | Описание |
+|------------|----------|
+| `.kicad_pcb` | Печатная плата |
+| `.kicad_sch` | Схема |
+| `.kicad_pro` | Проект |
+| `.kicad_prl` | Настройки проекта |
+| `.kicad_dru` | Правила DRC |
+| `.kicad_wks` | Форматная рамка |
+| `.pretty/` | Библиотеки посадочных мест |
+
+---
+
+### 🐍 Python API (для автоматизации)
+
+#### Запуск скрипта в KiCad:
+
+```
+Tools → Scripting → Run Script → выбери файл .py
+```
+
+#### Пример скрипта (fix_components_kicad_api.py):
+
+```python
+import pcbnew
+
+# Получить плату
+board = pcbnew.GetBoard()
+
+# Получить все компоненты
+footprints = board.GetFootprints()
+
+# Исправить позиции
+for fp in footprints:
+    pos = fp.GetPosition()
+    # ... логика исправления
+    fp.SetPosition(new_pos)
+
+# Сохранить
+board.Save()
+```
+
+#### Документация:
+
+- **KiCad Docs:** https://www.kicad.org/help/
+- **Dev Docs:** https://dev-docs.kicad.org/
+- **Python API:** https://dev-docs.kicad.org/en/develop/pcb_python/
+
+---
+
+### ✅ Checklist перед экспортом
+
+- [ ] Все компоненты внутри Edge.Cuts
+- [ ] DRC: 0 ошибок, 0 предупреждений
+- [ ] Зоны заполнены (нажми "B")
+- [ ] 3D просмотр: всё на месте
+- [ ] Силкскрин не перекрывается маской
+- [ ] Все трассы соединены (проверь ratsnest)
+- [ ] Экспортированы Gerber (.gbr)
+- [ ] Экспортированы Drill (.drl)
+- [ ] Проверены Gerber (Gerber Viewer)
+
+---
+
+### ⚠️ Частые Ошибки
+
+| Ошибка | Причина | Решение |
+|--------|---------|---------|
+| Компоненты за платой | Импорт без проверки | Запустить fix_components_kicad_api.py |
+| DRC ошибки | Нарушение правил | Tools → DRC → Исправить |
+| Зоны не заполнены | Не нажали "B" | Нажать "B" для заполнения |
+| Нет связи | Не подключен net | Проверить schematic → Update PCB |
+| Силкскрин на пятачках | Наложение слоёв | Изменить слой силкскрина |
+
+---
+
+### 📞 Поддержка KiCad
+
+- **Форум:** https://forum.kicad.info/
+- **Discord:** https://discord.gg/kicad
+- **IRC:** #kicad на Libera.Chat
+- **Документация:** https://docs.kicad.org/
+
+---
+
 *Последнее обновление: 2026-04-01*
