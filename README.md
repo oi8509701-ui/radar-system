@@ -1,4 +1,4 @@
-# AERIS-10N Phased Array Radar
+# AERIS-10 Phased Array Radar
 
 256-element modular X-band phased array radar (10.5 GHz)  
 Designed for detection of small aerial targets (birds, drones)
