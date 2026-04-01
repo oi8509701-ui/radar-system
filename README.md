@@ -1,20 +1,49 @@
-  # AERIS-10N Phased Array Radar Releases v0.1
+# AERIS-10N Phased Array Radar
 
-  256-element modular X-band phased array radar (10.5 GHz)
-  Designed for detection of small aerial targets (birds, drones)
-  -----------------------------------------------------------
-  •	Overview
-	•	Repository structure
-	•	How to open in KiCad
-	•	What is simulated vs what is measured
-	•	Roadmap
-  -------------------------------------------------------------
-  Simulation status
-  •	single element
-	•	4×4 tile
-	•	256 array
-	•	method used
-	•	validated / not validated
+256-element modular X-band phased array radar (10.5 GHz)  
+Designed for detection of small aerial targets (birds, drones)
+
+---
+
+## Overview
+Modular phased array radar based on a tile architecture.  
+Each tile contains a 4×4 fractal antenna array with beamforming electronics.
+
+---
+
+## Repository Structure
+- `Antenna/` — fractal antenna design
+- `Tile/` — 4×4 beamforming module
+- `PowerBoard/` — power distribution system
+- `Backplane/` — interconnect and control
+- `Sync/` — clock and synchronization
+
+---
+
+## Getting Started
+Open all PCB and schematic files in **KiCad 6+**
+
+---
+
+## Simulation Status
+- Single element — simulated  
+- 4×4 tile — simulated  
+- 256-element array — estimated  
+- Method — EM simulation (HFSS/CST-like)  
+- Validation — not measured yet  
+
+---
+
+## Status
+Work in progress
+
+---
+
+## Roadmap
+- [ ] Hardware prototype (tile)
+- [ ] Full array assembly (256 elements)
+- [ ] Calibration system
+- [ ] Field testing
   --------------------------------------------------------------
   
 <img width="477" height="695" alt="FAR" src="https://github.com/user-attachments/assets/8e632f1f-8ae0-4d82-8858-048c7216fd88" />
