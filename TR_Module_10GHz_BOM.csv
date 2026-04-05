@@ -1,0 +1,18 @@
+value,footprint,quantity,references
+100nF,Capacitor_SMD:C_0402_1005Metric,11,"['C20', 'C19', 'C18', 'C17', 'C16', 'C15', 'C14', 'C13', 'C12', 'C11', 'C10']"
+SN74LVTH573,Package_SO:SSOP-20_5.3x7.2mm_P0.65mm,1,['U12']
+SN74HC595,Package_SO:SOIC-16_3.9x9.9mm_P1.27mm,1,['U11']
+MountingHole_2.7mm,,4,"['MH2', 'MH3', 'MH1', 'MH4']"
+TMP117 SEPIC,Package_BGA:Texas_DSBGA-6_0.9x1.4mm_Layout2x3_P0.5mm,1,['U14']
+TMP117 PS,Package_BGA:Texas_DSBGA-6_0.9x1.4mm_Layout2x3_P0.5mm,1,['U15']
+QPC0045 TX,TR_Module_Lib:QFN-16_3x3mm_P0.5mm,1,['U9']
+LM5017 10V,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,1,['U2']
+LM5156 SEPIC,Package_SON:VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm,1,['U1']
+QPM1002,TR_Module_Lib:QFN-24_4x4mm_P0.5mm,1,['U6']
+LM5017 5V,Package_SO:SOIC-8_3.9x4.9mm_P1.27mm,1,['U3']
+TGP2109 TX,TR_Module_Lib:QFN-24_4x4mm_P0.5mm,1,['U7']
+TGP2109 RX,TR_Module_Lib:QFN-24_4x4mm_P0.5mm,1,['U8']
+ACT43750,TR_Module_Lib:QFN-24_4x4mm_P0.5mm,1,['U4']
+TMP117 QPM1002,Package_BGA:Texas_DSBGA-6_0.9x1.4mm_Layout2x3_P0.5mm,1,['U13']
+QPC0045 RX,TR_Module_Lib:QFN-16_3x3mm_P0.5mm,1,['U10']
+TMP117 PCB,Package_BGA:Texas_DSBGA-6_0.9x1.4mm_Layout2x3_P0.5mm,1,['U16']
