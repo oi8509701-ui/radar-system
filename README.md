@@ -11,6 +11,7 @@ High-performance single-channel Transmit/Receive (T/R) module for X-band phased 
 High-performance single-channel Transmit/Receive (T/R) module for X-band phased array systems (~10–10.5 GHz), featuring integrated beamforming and a compact fractal antenna.
 
 ⸻
+ 
  Overview
 
 This project implements a single RF front-end module (tile) designed for scalable phased array systems.
@@ -24,6 +25,7 @@ Key features:
 	•	Optimized for automated routing (Freerouting)
 
 ⸻
+ 
  Architecture
 
 RF IN → Phase Shifter → Attenuator → TXIN → [QPM1002] → ANT → Antenna
@@ -37,6 +39,7 @@ QPM1002 Internal Structure:
 	•	Built-in power detector (VDET)
 
 ⸻
+ 
  Power Architecture
 
 Rail	Voltage	Purpose
@@ -52,6 +55,7 @@ Converters:
 	•	Charge pump → -2.5V
 
 ⸻
+
 RF Components
 
 Component	Function	Notes
@@ -61,6 +65,7 @@ PE43705	Attenuator (6-bit)	0.5–12 GHz
 
 
 ⸻
+
  PCB
 	•	Substrate: Rogers 4350B
 	•	Stackup: 4 layers (RF + GND + PWR + CTRL)
@@ -69,6 +74,7 @@ PE43705	Attenuator (6-bit)	0.5–12 GHz
 	•	Optimized for high-frequency layout
 
 ⸻
+
  Thermal Design
 
 Per module dissipation:
@@ -86,6 +92,7 @@ For 256 modules:
 	•	Requires liquid cooling
 
 ⸻
+ 
  Control Interface
 	•	SPI (phase + attenuation control)
 	•	GPIO (TX/RX switching)
@@ -96,6 +103,7 @@ Logic:
 	•	SN74LVTH573 (latch)
 
 ⸻
+ 
  Monitoring
 	•	4× TMP117 temperature sensors:
 	•	RF front-end
@@ -104,6 +112,7 @@ Logic:
 	•	PCB ambient
 
 ⸻
+ 
  Power Sequencing
 
 Power-Up:
