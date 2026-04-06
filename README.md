@@ -8,6 +8,9 @@ High-performance single-channel Transmit/Receive (T/R) module for X-band phased 
 ---------------------------------
  X-Band T/R Module (10 GHz) with Fractal Antenna
 
+ <img width="431" height="535" alt="7" src="https://github.com/user-attachments/assets/f44661d8-3c44-47bd-ab98-93eb6d537238" />
+
+
 High-performance single-channel Transmit/Receive (T/R) module for X-band phased array systems (~10–10.5 GHz), featuring integrated beamforming and a compact fractal antenna.
 
 ⸻
