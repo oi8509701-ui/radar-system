@@ -17,6 +17,7 @@ High-performance single-channel Transmit/Receive (T/R) module for X-band phased 
 This project implements a single RF front-end module (tile) designed for scalable phased array systems.
 
 Key features:
+
 	•	X-band operation (~10–10.5 GHz)
 	•	Integrated PA + LNA + T/R switch (QPM1002)
 	•	Beamforming support (phase + amplitude control)
@@ -33,6 +34,7 @@ RF IN → Phase Shifter → Attenuator → TXIN → [QPM1002] → ANT → Antenn
 RF OUT ← Phase Shifter ← Attenuator ← RXOUT ┘
 
 QPM1002 Internal Structure:
+
 	•	TX path: PA (~35 dBm pulsed)
 	•	RX path: LNA (~2.2 dB NF, ~25 dB gain)
 	•	Internal T/R switch
@@ -50,6 +52,7 @@ VDD_IO	+3.3V	Control interface
 VG	-2.5V	GaN gate bias
 
 Converters:
+
 	•	LM5156 (SEPIC) → 25V
 	•	LM5017 → 10V / 5V
 	•	Charge pump → -2.5V
@@ -59,6 +62,7 @@ Converters:
 RF Components
 
 Component	Function	Notes
+
 QPM1002	T/R front-end	Core RF IC
 TGP2109	Phase shifter (6-bit)	8–12 GHz
 PE43705	Attenuator (6-bit)	0.5–12 GHz
@@ -67,6 +71,7 @@ PE43705	Attenuator (6-bit)	0.5–12 GHz
 ⸻
 
  PCB
+ 
 	•	Substrate: Rogers 4350B
 	•	Stackup: 4 layers (RF + GND + PWR + CTRL)
 	•	Controlled impedance (50 Ω)
@@ -88,23 +93,27 @@ Other	~1 W
 Total: ~16 W per module
 
 For 256 modules:
+
 	•	Total ≈ 4 kW
 	•	Requires liquid cooling
 
 ⸻
  
  Control Interface
+ 
 	•	SPI (phase + attenuation control)
 	•	GPIO (TX/RX switching)
 	•	I²C (temperature sensors)
 
 Logic:
+
 	•	SN74HC595 (shift register)
 	•	SN74LVTH573 (latch)
 
 ⸻
  
  Monitoring
+ 
 	•	4× TMP117 temperature sensors:
 	•	RF front-end
 	•	Power stage
@@ -116,6 +125,7 @@ Logic:
  Power Sequencing
 
 Power-Up:
+
 	1.	Apply VG (-2.5V)
 	2.	Disable TX/RX
 	3.	Enable RX_VD (10V)
