@@ -123,6 +123,7 @@ Power-Up:
 	5.	Enable TX/RX
 
 Power-Down:
+
 	1.	Disable TX/RX
 	2.	Disable TX_VD
 	3.	Disable RX
